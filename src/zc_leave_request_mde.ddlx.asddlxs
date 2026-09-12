@@ -1,0 +1,117 @@
+@Metadata.layer: #CORE
+
+@UI: {
+  headerInfo: {
+    typeName: 'Leave Request',
+    typeNamePlural: 'Leave Requests',
+    title: {
+      type: #STANDARD,
+      value: 'RequestID'
+    }
+  }
+}
+
+annotate view ZI_LEAVE_REQUEST_ with
+{
+
+  @UI.facet: [
+    {
+      id: 'LeaveRequestDetails',
+      purpose: #STANDARD,
+      type: #IDENTIFICATION_REFERENCE,
+      label: 'Leave Request Details',
+      position: 10
+    }
+  ]
+  
+    @UI.lineItem: [
+    { position: 10 }
+  ]
+  @UI.identification: [
+    { position: 10 }
+  ]
+  @EndUserText.label: 'Request ID'
+  RequestID;
+
+  @UI.lineItem: [
+  { position: 20 }
+  ]
+  @UI.identification: [
+  { position: 20 }
+  ]
+  @UI.selectionField: [
+  { position: 10 }
+  ]
+  @EndUserText.label: 'Employee ID'
+  EmployeeID;
+
+@UI.lineItem: [
+  { position: 30 }
+]
+@UI.identification: [
+  { position: 30 }
+]
+@UI.selectionField: [
+  { position: 30 }
+]
+@EndUserText.label: 'Leave Type'
+LeaveType;
+
+@UI.lineItem: [
+  { position: 40 }
+]
+@UI.identification: [
+  { position: 40 }
+]
+@UI.selectionField: [
+  { position: 40 }
+]
+@EndUserText.label: 'Start Date'
+StartDate;
+
+  @UI.lineItem: [
+    { position: 50 }
+  ]
+  @UI.identification: [
+    { position: 50 }
+  ]
+  @EndUserText.label: 'End Date'
+  EndDate;
+
+  @UI.lineItem: [
+    { position: 60 }
+  ]
+  @UI.identification: [
+    { position: 60 }
+  ]
+  @EndUserText.label: 'Number of Days'
+  NumberOfDays;
+
+@UI.lineItem: [
+  { position: 70 },
+  {
+    type: #FOR_ACTION,
+    dataAction: 'approve',
+    label: 'Approve'
+  },
+  {
+    type: #FOR_ACTION,
+    dataAction: 'reject',
+    label: 'Reject'
+  }
+]
+@UI.identification: [
+  { position: 70 }
+]
+@UI.selectionField: [
+  { position: 20 }
+]
+@EndUserText.label: 'Status'
+Status;
+
+  @UI.identification: [
+    { position: 80 }
+  ]
+  @EndUserText.label: 'Reason'
+  Reason;
+}

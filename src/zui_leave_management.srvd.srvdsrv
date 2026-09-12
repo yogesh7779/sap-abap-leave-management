@@ -1,0 +1,5 @@
+@EndUserText.label: 'Employee Leave Management UI Service'
+define service ZUI_LEAVE_MANAGEMENT {
+  expose ZI_LEAVE_REQUEST_ as LeaveRequest;
+  expose ZI_EMPLOYEE_      as Employee;
+}

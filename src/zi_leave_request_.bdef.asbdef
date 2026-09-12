@@ -1,0 +1,40 @@
+managed implementation in class zbp_i_leave_request_ unique;
+strict ( 2 );
+
+define behavior for ZI_LEAVE_REQUEST_ alias LeaveRequest
+persistent table zleave_req_table
+lock master
+authorization master ( none )
+{
+  create;
+  update;
+  delete;
+
+  field ( readonly : update ) RequestID;
+  field ( readonly ) NumberOfDays, Status;
+
+  determination calculateLeaveDays
+    on modify { create; field StartDate, EndDate; }
+
+  determination setInitialStatus
+    on modify { create; }
+
+  validation validateDates
+  on save { create; field StartDate, EndDate; }
+
+  action approve;
+
+  action reject;
+
+  mapping for zleave_req_table
+  {
+    RequestID     = request_id;
+    EmployeeID    = employee_id;
+    LeaveType     = leave_type;
+    StartDate     = start_date;
+    EndDate       = end_date;
+    NumberOfDays  = number_of_days;
+    Reason        = reason;
+    Status        = status;
+  }
+}
